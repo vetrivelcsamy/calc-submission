@@ -5,33 +5,35 @@
 body {
   padding: 0;
   margin: 0;
+  background: #01061f;
 }
 
 .calc {
+  margin-top: 10px;
   width: 400px;
-  background-color: black;
+  background-color: #131826;
   color: white;
 }
 
-.dispay-screen {
+#screen {
   color: white;
   font-size: 40px;
-  font-family: "monospace";
   text-align: right;
   padding: 20px 5px;
 }
 
 .calc-button {
-  color: #1d1919;
+  color: #131826;
   height: 100px;
-  width: 98px;
+  width: 97px;
   border: none;
   border-radius: 0;
   font-size: 40px;
   cursor: pointer;
 }
 .calc-button:hover{
- background: #CDDC39;
+ background: #2A2D40;
+ color: #ffffff;
 }
 
 .double {
@@ -44,7 +46,7 @@ body {
 
 .calc-button:last-child {
   color: white;
-  background: black;
+  background: #2A2D40;
 }
 
 .calc-button:last-child:hover {

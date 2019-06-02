@@ -5,15 +5,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<style type="text/css">
+	@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+</style>
 <body>
 <center>
 	  <div class="calc">
-    <section class="dispay-screen">
+    <section id="screen">
       0
     </section>
     <section class="calc-buttons">
       <div class="calc-button-row">
-        <button class="calc-button double ">C</button>
+        <button class="calc-button double">C</button>
         <button class="calc-button">←</button>
         <button class="calc-button">÷</button>
       </div>
