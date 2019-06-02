@@ -13,6 +13,7 @@ function buttonClick(value) {
 	} else {
 		handleNumber(value)
 	}
+	rerender()
 }
 
 function handleNumber(value) {
@@ -21,7 +22,38 @@ function handleNumber(value) {
 	} else {
 		buffer += value
 	}
-	rerender()
+}
+
+//reference: https://www.w3schools.com/js/js_switch.asp
+
+function handleSymbol(value) {
+	switch (value) {
+		case "C":
+			buffer = "0"
+			runningTotal = 0
+			previousOperator = null
+			break
+		case "=":
+			if (previousOperator === null) {
+				return
+			}
+			//logic refer: https://stackoverflow.com/a/14479965
+			flushOperation(parseInt(buffer))
+			previousOperator = null
+			buffer = "" + runningTotal
+			runningTotal = 0
+			break
+		case "←":
+			if (buffer.length === 1) {
+				buffer = "0"
+			} else {
+				buffer = buffer.substring(0, buffer.length - 1)
+			}
+			break
+		default:
+			handleCal(value)
+			break
+	}
 }
 
 function rerender() {
