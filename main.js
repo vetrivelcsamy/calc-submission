@@ -1,9 +1,13 @@
 let runningTotal = 0
 let buffer = "0"
 let previousOperator
-const screen = document.querySelector("#screen")
 
-document.querySelector(".calc-buttons").addEventListener("click", function(event) {
+const screen = document.querySelector("#screen")
+var errorText = "Not Support"
+
+
+
+ document.querySelector(".calc-buttons").addEventListener("click", function(event) {
 	buttonClick(event.target.innerText)
 })
 
@@ -18,7 +22,7 @@ function buttonClick(value) {
 
 function handleNumber(value) {
 	if (buffer === "0") {
-		buffer = value
+	     	buffer = value
 	} else {
 		buffer += value
 	}
@@ -27,6 +31,7 @@ function handleNumber(value) {
 //reference: https://www.w3schools.com/js/js_switch.asp
 
 function handleSymbol(value) {
+
 	switch (value) {
 		case "C":
 			buffer = "0"
@@ -73,7 +78,7 @@ function flushOperation(intBuffer) {
 		runningTotal += intBuffer
 	} else if (previousOperator === "-") {
 		runningTotal -= intBuffer
-	} else if (previousOperator === "x") {
+	} else if (previousOperator === "×") {
 		runningTotal *= intBuffer
 	} else {
 		runningTotal /= intBuffer
@@ -81,5 +86,11 @@ function flushOperation(intBuffer) {
 }
 
 function rerender() {
-	screen.innerText = buffer
-}
+  if (buffer.length <= 14) {
+    screen.innerText = buffer
+  }else{
+  screen.innerText = errorText
+  }
+ }
+
+//screen.innerText = buffer
