@@ -5,12 +5,12 @@ let previousOperator
 const screen = document.querySelector("#screen")
 var errorText = "Not Support"
 
-
-
+// handling button click
  document.querySelector(".calc-buttons").addEventListener("click", function(event) {
 	buttonClick(event.target.innerText)
 })
 
+// input only numbers
 function buttonClick(value) {
 	if (isNaN(parseInt(value))) {
 		handleSymbol(value)
@@ -20,18 +20,19 @@ function buttonClick(value) {
 	rerender()
 }
 
+//  handle number
 function handleNumber(value) {
 	if (buffer === "0") {
 	     	buffer = value
-	} else {
+   	} else {
 		buffer += value
 	}
 }
 
+
 //reference: https://www.w3schools.com/js/js_switch.asp
-
 function handleSymbol(value) {
-
+// task handling 
 	switch (value) {
 		case "C":
 			buffer = "0"
@@ -56,23 +57,29 @@ function handleSymbol(value) {
 			}
 			break
 		default:
+		    case "+":
+		    case "−":
+		    case "×":
+		    case "÷":
 			handleCal(value)
 			break
 	}
 }
 
+// storing numbers +++
 function handleCal(value) {
-	const intBuffer = parseInt(buffer)
+	let intBuffer = parseInt(buffer)
 	if (runningTotal === 0) {
-		runningTotal = intBuffer
+	runningTotal = intBuffer
 	} else {
 		flushOperation(intBuffer)
 	}
 	previousOperator = value
+    buffer = "0"
 
-	buffer = "0"
 }
 
+// math operation
 function flushOperation(intBuffer) {
 	if (previousOperator === "+") {
 		runningTotal += intBuffer
@@ -85,11 +92,12 @@ function flushOperation(intBuffer) {
 	}
 }
 
+//render all outputs
 function rerender() {
   if (buffer.length <= 14) {
     screen.innerText = buffer
   }else{
-  screen.innerText = errorText
+   screen.innerText = errorText
   }
  }
 
