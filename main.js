@@ -71,11 +71,13 @@ function handleCal(value) {
 	let intBuffer = parseInt(buffer)
 	if (runningTotal === 0) {
 	runningTotal = intBuffer
+  
 	} else {
 		flushOperation(intBuffer)
 	}
-	previousOperator = value
-    buffer = "0"
+    //screen.innerText = previousOperatorvalue
+	console.log(previousOperator = value)
+    buffer = value
 
 }
 

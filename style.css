@@ -17,6 +17,7 @@ body {
 
 #screen {
   color: white;
+  font-family: 'Inconsolata', monospace;
   font-size: 40px;
   text-align: right;
   padding: 20px 5px;
@@ -27,17 +28,20 @@ body {
 }
 
 .calc-button {
-  color: #131826;
+  color: #011526;
+  border-color: #011526;
+  box-shadow: 0 0 40px #011526;
   height: 100px;
   width: 97px;
   border: none;
   border-radius: 0;
+  font-family: 'Righteous', cursive;
   font-size: 40px;
   cursor: pointer;
 }
 .calc-button:hover{
- background: #2A2D40;
- color: #ffffff;
+ background: #011526;
+ color: #f1f1f1;
 }
 
 .double {
@@ -50,12 +54,14 @@ body {
 
 .calc-button:last-child {
   color: white;
-  background: #2A2D40;
+  background: #011526;
+  border: #011526;
+  box-shadow: 2px 1px 15px #03738C;
 }
 
 .calc-button:last-child:hover {
-  background: #b1b1b1;
-  color: #171717;
+  background: #05DBF2;
+  color: #011526;
 }
 
 .calc-button:last-child:active {
