@@ -5,7 +5,7 @@
 body {
   padding: 0;
   margin: 0;
-  background: #01061f;
+  background: #03192b;
 }
 
 .calc {
@@ -87,3 +87,4 @@ color: #f1f1f1;
 .calc-button-row:last-child {
   padding-bottom: 0;
 }
+
